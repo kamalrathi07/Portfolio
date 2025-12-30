@@ -1,33 +1,32 @@
-// GSAP Intro
-gsap.from("#title", {
-  y: 80,
-  opacity: 0,
-  duration: 1.2,
-  ease: "power4.out"
-});
+document.addEventListener("DOMContentLoaded", () => {
 
-gsap.from("#subtitle", {
-  y: 40,
-  opacity: 0,
-  duration: 1,
-  delay: 0.3,
-  ease: "power4.out"
-});
+  gsap.from("#title", {
+    y: 60,
+    opacity: 0,
+    duration: 1,
+    ease: "power4.out"
+  });
 
-gsap.from("#robot", {
-  scale: 0.8,
-  opacity: 0,
-  duration: 1,
-  delay: 0.6,
-  ease: "power3.out"
-});
+  gsap.from("#subtitle", {
+    y: 30,
+    opacity: 0,
+    duration: 0.8,
+    delay: 0.3
+  });
 
-// Robot follow illusion
-const robot = document.getElementById("robot");
+  gsap.from("#robot", {
+    scale: 0.5,
+    opacity: 0,
+    duration: 0.8,
+    delay: 0.6
+  });
 
-document.addEventListener("mousemove", (e) => {
-  const x = (window.innerWidth / 2 - e.clientX) / 30;
-  const y = (window.innerHeight / 2 - e.clientY) / 30;
+  const robot = document.getElementById("robot");
 
-  robot.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
+  document.addEventListener("mousemove", (e) => {
+    const x = (window.innerWidth / 2 - e.clientX) / 20;
+    const y = (window.innerHeight / 2 - e.clientY) / 20;
+    robot.style.transform = `rotateX(${y}deg) rotateY(${x}deg)`;
+  });
+
 });
