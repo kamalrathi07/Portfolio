@@ -1,4 +1,6 @@
-// ================= GSAP INTRO =================
+/*************************
+ * GSAP INTRO ANIMATIONS
+ *************************/
 document.addEventListener("DOMContentLoaded", () => {
 
   gsap.from(".hero h1", {
@@ -29,80 +31,97 @@ document.addEventListener("DOMContentLoaded", () => {
     scale: 0.85,
     opacity: 0,
     duration: 1,
-    delay: 0.8,
+    delay: 0.9,
     ease: "power3.out"
   });
 
 });
 
-// ================= THREE.JS ROBOT =================
+/*************************
+ * THREE.JS 3D ROBOT
+ *************************/
 let scene, camera, renderer, robot;
-
 const container = document.getElementById("robot-container");
 
-// Scene
+// SCENE
 scene = new THREE.Scene();
 
-// Camera
+// CAMERA (temporary, auto-adjusted later)
 camera = new THREE.PerspectiveCamera(
   45,
   container.clientWidth / container.clientHeight,
-  0.1,
+  0.01,
   1000
 );
-camera.position.set(0, 1.5, 3);
 
-// Renderer
+// RENDERER
 renderer = new THREE.WebGLRenderer({
   alpha: true,
   antialias: true
 });
 renderer.setSize(container.clientWidth, container.clientHeight);
+renderer.setPixelRatio(window.devicePixelRatio);
 container.appendChild(renderer.domElement);
 
-// Lighting
-scene.add(new THREE.AmbientLight(0xffffff, 0.8));
+// LIGHTING (strong + safe)
+scene.add(new THREE.AmbientLight(0xffffff, 1));
 
-const dirLight = new THREE.DirectionalLight(0xffffff, 1);
-dirLight.position.set(5, 5, 5);
+const dirLight = new THREE.DirectionalLight(0xffffff, 2);
+dirLight.position.set(5, 10, 7);
 scene.add(dirLight);
 
-// Load GLB (ROOT PATH)
+// LOAD GLB FROM ROOT
 const loader = new THREE.GLTFLoader();
 loader.load(
   "robot.glb",
   (gltf) => {
+    console.log("✅ GLB LOADED");
+
     robot = gltf.scene;
-    robot.scale.set(1.2, 1.2, 1.2);
-    robot.position.set(0, -0.5, 0);
     scene.add(robot);
+
+    // AUTO CENTER MODEL
+    const box = new THREE.Box3().setFromObject(robot);
+    const center = box.getCenter(new THREE.Vector3());
+    const size = box.getSize(new THREE.Vector3());
+
+    robot.position.sub(center);
+
+    // AUTO SCALE
+    const maxDim = Math.max(size.x, size.y, size.z);
+    const scale = 2 / maxDim;
+    robot.scale.setScalar(scale);
+
+    // AUTO CAMERA FIT
+    camera.position.set(0, size.y * 1.2, maxDim * 3);
+    camera.lookAt(0, 0, 0);
   },
   undefined,
   (error) => {
-    console.error("GLB load error:", error);
+    console.error("❌ GLB LOAD ERROR:", error);
   }
 );
 
-// Cursor follow
+// CURSOR FOLLOW
 document.addEventListener("mousemove", (e) => {
   if (!robot) return;
 
-  const x = (e.clientX / window.innerWidth - 0.5) * 1.2;
-  const y = (e.clientY / window.innerHeight - 0.5) * 1.2;
+  const x = (e.clientX / window.innerWidth - 0.5) * 0.8;
+  const y = (e.clientY / window.innerHeight - 0.5) * 0.8;
 
   robot.rotation.y = x;
   robot.rotation.x = y;
 });
 
-// Animation loop
+// ANIMATION LOOP
 function animate() {
   requestAnimationFrame(animate);
-  if (robot) robot.rotation.y += 0.002; // idle motion
+  if (robot) robot.rotation.y += 0.003; // idle motion
   renderer.render(scene, camera);
 }
 animate();
 
-// Responsive
+// RESPONSIVE
 window.addEventListener("resize", () => {
   camera.aspect = container.clientWidth / container.clientHeight;
   camera.updateProjectionMatrix();
