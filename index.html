@@ -12,12 +12,15 @@
   <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 
+  <!-- GSAP -->
+  <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- SOCIAL SIDEBAR -->
-  <div class="social-sidebar">
+  <!-- SOCIAL -->
+  <div class="social">
     <a href="https://github.com/kamalrathi07" target="_blank"><i class="fab fa-github"></i></a>
     <a href="https://www.instagram.com/kamalrathi.dev" target="_blank"><i class="fab fa-instagram"></i></a>
     <a href="https://www.linkedin.com/in/kamal-rathi-07/" target="_blank"><i class="fab fa-linkedin"></i></a>
@@ -25,20 +28,22 @@
 
   <!-- HERO -->
   <section class="hero">
-    <h1>Kamal Rathi</h1>
-    <p>Creative Developer & Designer</p>
+    <h1 id="title">Kamal Rathi</h1>
+    <p id="subtitle">Creative Developer & Designer</p>
 
-    <!-- 3D ROBOT -->
-    <div class="scene">
-      <div class="robot" id="robot">
-        <div class="face front">🤖</div>
-        <div class="face back"></div>
-        <div class="face left"></div>
-        <div class="face right"></div>
-        <div class="face top"></div>
-        <div class="face bottom"></div>
-      </div>
+    <!-- ROBOT -->
+    <div class="robot-wrap">
+      <img src="https://i.imgur.com/9yG6kKZ.png" id="robot" alt="Robot" />
     </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about">
+    <h2>About Me</h2>
+    <p>
+      I build immersive, animated, high-performance web experiences
+      with a strong focus on motion, interaction, and clean aesthetics.
+    </p>
   </section>
 
 <script src="script.js"></script>
