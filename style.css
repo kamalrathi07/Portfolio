@@ -10,7 +10,7 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
-/* SOCIAL ICONS */
+/* SOCIAL */
 .social {
   position: fixed;
   left: 20px;
@@ -18,19 +18,20 @@ body {
   transform: translateY(-50%);
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  z-index: 1000;
+  gap: 18px;
+  z-index: 999;
 }
 
 .social a {
-  font-size: 26px;
   color: white;
+  font-size: 26px;
+  text-decoration: none;
   transition: 0.3s;
 }
 
 .social a:hover {
   color: #ffcc00;
-  transform: scale(1.3);
+  transform: scale(1.2);
 }
 
 /* HERO */
@@ -45,38 +46,32 @@ body {
 }
 
 .hero h1 {
-  font-size: 4.5rem;
+  font-size: 4rem;
 }
 
 .hero p {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   opacity: 0.8;
   margin-bottom: 40px;
 }
 
 /* ROBOT */
-.robot-wrap {
-  width: 180px;
-  height: 180px;
-}
-
-#robot {
-  width: 100%;
-  transition: transform 0.1s ease-out;
+.robot {
+  font-size: 80px;
+  transition: transform 0.1s ease;
 }
 
 /* ABOUT */
 .about {
   padding: 80px 20px;
-  text-align: center;
   max-width: 800px;
   margin: auto;
+  text-align: center;
 }
 
 .about h2 {
-  font-size: 3rem;
+  font-size: 2.5rem;
   margin-bottom: 20px;
-  font-family: 'Montserrat', sans-serif;
 }
 
 .about p {
@@ -84,17 +79,17 @@ body {
   opacity: 0.85;
 }
 
-/* MOBILE FIX */
+/* MOBILE */
 @media (max-width: 768px) {
   .social {
-    left: 50%;
-    bottom: 20px;
     top: auto;
+    bottom: 20px;
+    left: 50%;
     transform: translateX(-50%);
     flex-direction: row;
   }
 
   .hero h1 {
-    font-size: 3rem;
+    font-size: 2.8rem;
   }
 }
