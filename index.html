@@ -2,59 +2,45 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kamal Rathi | Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400&display=swap" rel="stylesheet">
 
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-Po7eXf+xB8mHrT5b2lh1FpM48Xk9s7Rj+Rrj6T9f4Uz1YzFj50c0+X0tV1hj1XzF8J7Y3/lnmXQ+Vz3m+ZvA1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 
-  <!-- Stylesheet -->
   <link rel="stylesheet" href="style.css" />
-
-  <!-- GSAP -->
-  <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
 </head>
 <body>
-  <!-- Custom Cursor -->
-  <div id="cursor"></div>
 
-  <!-- Sidebar Social Icons -->
+  <!-- SOCIAL SIDEBAR -->
   <div class="social-sidebar">
     <a href="https://github.com/kamalrathi07" target="_blank"><i class="fab fa-github"></i></a>
-    <a href="https://www.instagram.com/kamalrathi.dev?igsh=MWR5ZWk4czczcWozcQ==" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.instagram.com/kamalrathi.dev" target="_blank"><i class="fab fa-instagram"></i></a>
     <a href="https://www.linkedin.com/in/kamal-rathi-07/" target="_blank"><i class="fab fa-linkedin"></i></a>
   </div>
 
-  <!-- Hero Section -->
+  <!-- HERO -->
   <section class="hero">
-    <h1 id="hero-title">Kamal Rathi</h1>
-    <p id="hero-sub">Creative Developer & Designer</p>
+    <h1>Kamal Rathi</h1>
+    <p>Creative Developer & Designer</p>
 
-    <!-- Robot SVG -->
-    <div class="robot">
-      <svg id="robot" width="150" height="150" viewBox="0 0 150 150">
-        <circle cx="75" cy="75" r="70" stroke="#f5f5f5" stroke-width="3" fill="#111"/>
-        <circle id="eye-left" cx="50" cy="70" r="10" fill="#f5f5f5"/>
-        <circle id="eye-right" cx="100" cy="70" r="10" fill="#f5f5f5"/>
-        <rect x="50" y="100" width="50" height="10" fill="#f5f5f5"/>
-      </svg>
+    <!-- 3D ROBOT -->
+    <div class="scene">
+      <div class="robot" id="robot">
+        <div class="face front">🤖</div>
+        <div class="face back"></div>
+        <div class="face left"></div>
+        <div class="face right"></div>
+        <div class="face top"></div>
+        <div class="face bottom"></div>
+      </div>
     </div>
   </section>
 
-  <!-- About Section -->
-  <section class="about">
-    <h2>About Me</h2>
-    <p>I build immersive, animated, high-performance web experiences with a strong focus on motion, interaction, and visual polish.</p>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    © 2025 Kamal Rathi
-  </footer>
-
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
